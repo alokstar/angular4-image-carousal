@@ -1,0 +1,22 @@
+<h3>
+  Image Carousal!
+</h3>
+
+<div class="carousel-wrapper">
+
+  <div *ngFor="let img of loadedImages; let i = index">
+    <app-image-slide
+      *ngIf="currentSlide === i"
+      [src]="img"
+      [slideNo]="i"
+      [isHidden]="i !== 0">
+    </app-image-slide>
+  </div>
+
+
+  <app-arrows
+    *ngIf="galleryLength > 1"
+    (changeSlide)="onChangeSlideArrow($event);">
+  </app-arrows>
+
+</div>
